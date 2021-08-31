@@ -64,7 +64,7 @@ function game() {
             ++computerPoints;
         }
     
-        console.log(playerPoints, computerPoints)
+        console.log('Your score: ' + playerPoints, '\nComputers score: ' + computerPoints)
     }
     
     let finalResult;
