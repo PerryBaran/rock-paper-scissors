@@ -16,41 +16,28 @@ function computerPlay() {
 
 function playerPlay() {
     let input = prompt("Rock, Paper, Scissors?");
-    const playerInput= input.toLowerCase();
+    const playerInput = input.toLowerCase();
     return playerInput
 }
 
 function playRound() {
     let computerSelection = computerPlay();
     let playerSelection = playerPlay();
-    let result;
 
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        result = 'You Win! Rock beats scissors'
+    if ((playerSelection === 'rock' && computerSelection === 'scissors')
+     || (playerSelection === 'scissors' && computerSelection === 'paper')
+     || (playerSelection === 'paper' && computerSelection === 'rock')) {
+        result = 'You win, ' + playerSelection + ' beats ' + computerSelection;
     }
 
-    else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        result = 'You Win! Scissors beats paper'
-    }
-
-    else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        result = 'You Win! Paper beats rock'
-    }
-
-    else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        result = 'You Lose! Paper beats rock'
-    }
-
-    else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        result = 'You Lose! Rock beats scissors'
-    }
-
-    else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        result = 'You Lose! Scissors beats paper'
+    else if ((playerSelection === 'rock' && computerSelection === 'paper')
+    || (playerSelection === 'scissors' && computerSelection === 'rock') 
+    || (playerSelection === 'paper' && computerSelection === 'scissors')) {
+        result = 'You lose, ' + computerSelection + ' beats ' + playerSelection;
     }
 
     else if (playerSelection ===  computerSelection) {
-        result = 'Draw!' 
+        result = 'Draw, both players chose ' + playerSelection;
     }
 
     else {
@@ -62,37 +49,36 @@ function playRound() {
     return result;
 }
 
+
 function game() {
     let playerPoints = 0;
     let computerPoints = 0;
 
-    for (let round=0; round<5; round++) {
-        if (playRound().includes("You Win")) {
-            playerPoints++;
-            round++;
+    for (var i=0; i<5; i++) {
+        playRound();
+
+        if (result.includes('win')) {
+            ++playerPoints;
         }
-        else if (playRound().includes("You Lose")) {
-            computerPoints++;
-            round++;
+        else if (result.includes('lose')) {
+            ++computerPoints;
         }
-        
-        else {
-            round++;
-        }
+    
+        console.log(playerPoints, computerPoints)
     }
     
     let finalResult;
 
         if (playerPoints > computerPoints) {
-            finalResult = 'You Won the game!';
+            finalResult = 'You Won the game! ' +  '\nYour score: ' + playerPoints + '\nComputers score: ' + computerPoints;
         }
 
         else if (playerPoints < computerPoints) {
-            finalResult = 'You Lost the game!';
+            finalResult = 'You Lost the game! ' +  '\nYour score: ' + playerPoints + '\nComputers score: ' + computerPoints;
         }
 
-        else if (playerPoints === computerPoints) {
-            finalResult = 'You drew the game!';
+        else {
+            finalResult = 'You drew the game!  ' +  '\nYour score: ' + playerPoints + '\nComputers score: ' + computerPoints;
         }
     
     return finalResult;
