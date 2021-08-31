@@ -14,4 +14,7 @@ function computerPlay() {
         }
 }
 
-console.log(computerPlay());
+let playerPlay = prompt("Rock, Paper, Scissors?");
+let playerChoice = playerPlay.toLowerCase();
+
+console.log(playerChoice);
