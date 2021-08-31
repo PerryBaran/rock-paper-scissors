@@ -14,46 +14,88 @@ function computerPlay() {
         }
 }
 
-let playerPlay = prompt("Rock, Paper, Scissors?");
-let playerChoice = playerPlay.toLowerCase();
+function playerPlay() {
+    let input = prompt("Rock, Paper, Scissors?");
+    const playerInput= input.toLowerCase();
+    return playerInput
+}
 
-const playerSelection = playerChoice;
-const computerSelection = computerPlay();
-
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+    let computerSelection = computerPlay();
+    let playerSelection = playerPlay();
+    let result;
 
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 'You Win! Rock beats scissors'
+        result = 'You Win! Rock beats scissors'
     }
 
     else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 'You Win! Scissors beats paper'
+        result = 'You Win! Scissors beats paper'
     }
 
     else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'You Win! Paper beats rock'
+        result = 'You Win! Paper beats rock'
     }
 
     else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return 'You Lose! Paper beats rock'
+        result = 'You Lose! Paper beats rock'
     }
 
     else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return 'You Lose! Rock beats scissors'
+        result = 'You Lose! Rock beats scissors'
     }
 
     else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return 'You Lose! Scissors beats paper'
+        result = 'You Lose! Scissors beats paper'
     }
 
-    else if (playerSelection === 'rock' && computerSelection === 'rock' || playerSelection === 'paper' && computerSelection === 'paper' || playerSelection === 'scissors' && computerSelection === 'scissors') {
-        return 'Draw!'
+    else if (playerSelection ===  computerSelection) {
+        result = 'Draw!' 
     }
 
     else {
-        return 'unexpected input'
+        result = 'unexpected input'
     }
 
+    console.log(result);
+
+    return result;
 }
 
-console.log (playRound(playerSelection, computerSelection))
+function game() {
+    let playerPoints = 0;
+    let computerPoints = 0;
+
+    for (let round=0; round<5; round++) {
+        if (playRound().includes("You Win")) {
+            playerPoints++;
+            round++;
+        }
+        else if (playRound().includes("You Lose")) {
+            computerPoints++;
+            round++;
+        }
+        
+        else {
+            round++;
+        }
+    }
+    
+    let finalResult;
+
+        if (playerPoints > computerPoints) {
+            finalResult = 'You Won the game!';
+        }
+
+        else if (playerPoints < computerPoints) {
+            finalResult = 'You Lost the game!';
+        }
+
+        else if (playerPoints === computerPoints) {
+            finalResult = 'You drew the game!';
+        }
+    
+    return finalResult;
+}
+
+console.log(game())
