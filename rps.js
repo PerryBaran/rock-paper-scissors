@@ -53,8 +53,9 @@ function playRound() {
 function game() {
     let playerPoints = 0;
     let computerPoints = 0;
+    let round = 5;
 
-    for (var i=0; i<5; i++) {
+    for (var i=0; i<round; i++) {
         playRound();
 
         if (result.includes('win')) {
@@ -63,7 +64,11 @@ function game() {
         else if (result.includes('lose')) {
             ++computerPoints;
         }
-    
+
+        else if (result.includes('unexpected')) {
+            ++round;
+        }
+
         console.log('Your score: ' + playerPoints, '\nComputers score: ' + computerPoints)
     }
     
