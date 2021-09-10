@@ -1,0 +1,120 @@
+body {
+    background-color: #fffaff;
+    font-family: monospace;
+    color: #ff30d6;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Arial Black', Arial, Helvetica, sans-serif;
+    color: #ff30d6;
+    font-size: 40px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    color:#452cd6;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #45e9ff;
+    border-radius: 5px;
+    width: 100px;
+    Height: 50px;
+    border: 2px groove #ff30d6;
+    margin: 20px;
+}
+
+button:hover {
+    box-shadow: 3px 3px #ff30d6;
+    transform: scale(1.05);
+}
+
+.playarea {
+    width: 50%;
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.score {
+    margin: auto;
+    height: 30px;
+    width: 40px;
+    position: relative;
+    top: 10px;
+    font-weight: normal;
+    font-size: 20px;
+    background-color: #45e9ff;
+    color: #452cd6;
+    padding-top: 7px;
+    border: 2px groove #ff30d6;
+    border-radius: 5px;
+}
+
+.playart {
+    margin: auto;
+    position: relative;
+    top: 20px;
+    height: 250px;
+    width: 95%;
+}
+
+#WinLose {
+    position: relative;
+    top: 100px;
+    text-align: center;
+    font-size: 100px;
+
+}
+
+img {
+    width: 80% ;
+    max-width: 250px;
+}
+
+a {
+    text-decoration: none;
+    color: #ff30d6;
+}
+
+a:hover {
+    color: #452cd6;
+}
+
+.artatrribution {
+    position: absolute;
+    width: 100%;
+    top: 900px;
+    left: 0px;
+    text-align: center;
+    
+}
+
+.squilly {
+    position: absolute;
+    width: 100%;
+    top: 880px;
+    left: 0px;
+    text-align: center;
+}
+
+
+.flip {
+    transform: scaleX(-1);
+}
